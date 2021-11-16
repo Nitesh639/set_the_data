@@ -1,6 +1,8 @@
 import pandas as pd
 data = pd.read_csv(r'C:\Users\Lenovo\PycharmProjects\set_the_data\melb_data.csv')
 
+#dropna is used for the row subset used for perticuler column
+data.dropna(axis=0 , subset=['Price'],inplace=True)
 
 #In this code we drop the all missing columns
 miss = []
@@ -30,4 +32,7 @@ data4 = data.copy()
 mean_imputer = SimpleImputer(strategy='constant')
 data5 = pd.DataFrame(mean_imputer.fit_transform(data4))
 
+#When we use to SimpleImputer all columns name remove then we put the columns name
+data5.columns = data.columns
+print(data5.columns)
 # print(data5.groupby('car'))
