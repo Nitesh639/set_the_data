@@ -6,6 +6,7 @@ data.dropna(axis=0 , subset=['Price'],inplace=True)
 
 #In this code we drop the all missing columns
 miss = []
+                                                                # n = [col for col in data.columns if data[col].isnull().any()]
 for col in data.columns:
     if data[col].isnull().any():
         miss.append(col)            #all columns with the drop values
@@ -36,3 +37,5 @@ data5 = pd.DataFrame(mean_imputer.fit_transform(data4))
 data5.columns = data.columns
 print(data5.columns)
 # print(data5.groupby('car'))
+
+# print(n)
